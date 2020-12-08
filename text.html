@@ -1,0 +1,104 @@
+|<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../echars/echars.js"></script>
+    <style>
+        #box{
+            width:800px;
+            height:500px;
+            background:pink;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'></div>
+    <script>
+        const myEcharsts =  echarts.init(document.getElementById('box'))
+        myEcharsts.setOption({
+            legend:{},
+            xAxis:{
+                data:['2014','2015','2016','2017'],
+                name:'super Start',
+                boundaryGap:true
+            },
+            grid:{
+                left:20
+            },
+            yAxis:{
+              name:"分数",
+              min:0,
+              max:100
+            },
+            series:[
+                {
+                    name:'科比',
+                    data:[81,71,60,54],
+                    type:'bar',
+                    legendHoverLink :false,
+                    // label:{
+                    //     show:true
+                    // },
+                    // itemStyle:{
+                    //     color:'blue'
+                    // },
+                    emphasis:{
+                        label:{
+                            show:true
+                        },
+                        itemStyle:{
+                            color:'green'
+                        }
+                    },
+                    // stack:'one',
+                    markPoint:{
+                        symbol:'circle',
+                        symbolSize:20,
+                        data:[{
+                            type:'min',
+                            coord:['2014','88'],
+                            // coord:[2,81]
+                            x:20,
+                            y:81,
+                            symbol:'rect'
+                        },
+                       
+                        ],
+                      
+                    },
+                    markLine:{
+                        data:[[{
+                            
+                            coord:[1,50]
+                        
+                        },
+                        {
+                            coord:[3,100]
+                        }]]
+                    }
+                },
+                {
+                    name:'艾佛森',
+                    data:[61,66,62,41],
+                    type:'bar',
+                    // stack:'one'
+                },
+                {
+                    name:"麦迪",
+                    data:[65,54,32,21],
+                    type:'bar',
+                    legendHoverLink :false
+                },
+                {
+                    name:'乔丹',
+                    data:[71,70,60,88],
+                    type:'bar'
+                }
+            ]
+        })
+
+    </script>
+</body>
+</html>
